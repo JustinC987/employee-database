@@ -1,1 +1,388 @@
 /* You can add global styles to this file, and also import other style files */
+
+/**
+ * Font Awesome
+ */
+@import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+/**
+  * Base style
+  */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+/**
+  * Typography
+  */
+html,
+body,
+input,
+textarea {
+	font-family: 'Trebuchet MS', Helvetica, sans-serif;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+.site-title {
+	font-size: 2em;
+}
+
+/**
+  * Containers
+  */
+.container {
+	width: 80%;
+	margin: auto;
+	max-width: 1600px;
+}
+
+.flex-outer {
+	display: flex;
+	flex-flow: wrap;
+}
+
+.flex-inner,
+.flex-outer > div {
+	flex: 1 1 auto;
+}
+
+/**
+ * Buttons
+ */
+button {
+	white-space: nowrap;
+
+	padding: 1em 3.5em;
+	margin-right: 2em;
+
+	border: solid 2px #eeeeee;
+
+	border-radius: 4px;
+	color: #212121;
+	background-color: #cecece;
+
+	font: 400 13.3333px Arial;
+	cursor: pointer;
+}
+
+.button-delete:hover,
+.button-danger:hover {
+	background-color: #d50000;
+}
+
+.button-primary:hover {
+	background-color: #fafafa;
+}
+
+/**
+ * Form
+ */
+label {
+	color: #212121;
+}
+
+input:not([type=checkbox]),
+input:not([type=radio]),
+textarea,
+textarea {
+	display: block;
+
+	width: 100%;
+	max-width: 100%;
+	padding: 1em;
+
+	border: none;
+	border-left: solid 3px;
+	border-radius: 8px;
+	outline: none;
+	box-shadow: 1px 1px #9e9e9e;
+
+	color: #757575;
+	background-color: #fafafa;
+
+	font-size: 0.9em;
+}
+
+textarea {
+	min-height: 140px;
+}
+
+input::placeholder,
+textarea::placeholder {
+	font-style: italic;
+	font-size: small;
+}
+
+/*
+* Modal Styles
+*/
+.cdk-overlay-dark-backdrop {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+body .mat-dialog-container {
+	padding: 0;
+	min-width: 80vw;
+}
+
+.modal-header {
+	padding: 1em;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-header h3 {
+	margin: 0;
+}
+
+.modal-header .close-button {
+	float: right;
+	padding-top: 0.1em;
+
+	text-align: right;
+	color: #d50000;
+
+	cursor: pointer;
+}
+
+.modal-body {
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+
+	max-height: 80vh;
+
+	padding: 2em;
+}
+
+.modal-body h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.modal-body p {
+	color: #424242;
+}
+
+.modal-footer {
+	padding: 1em;
+
+	text-align: right;
+
+	border-top: 1px solid #e0e0e0;
+}
+
+.modal-footer button {
+	margin-left: 0.5em;
+}
+
+/**
+ * Material
+ */
+mat-menu *,
+mat-select *,
+mat-option *,
+mat-slider *,
+mat-slide-toggle *,
+mat-progress-spinner *,
+mat-progress-spinner-bar *,
+mat-table *,
+mat-paginator *,
+mat-sort *,
+mat-checkbox {
+	box-sizing: content-box;
+}
+
+.mat-table {
+	width: 100%;
+}
+
+.mat-table .mat-header-cell,
+.mat-table .mat-cell {
+	padding-right: 0.5em;
+}
+
+.mat-table i {
+	margin: 0.5em;
+}
+
+.mat-table .fa-trash-alt {
+	color: #d50000;
+}
+
+.table-scroll-container {
+	overflow: auto;
+}
+
+.table-scroll-container input {
+	min-width: 10em;
+}
+
+.mat-column-select {
+	overflow: initial;
+}
+
+/* input validation
+ *
+*/
+
+.invalid-input-message {
+	color: #b71c1c;
+}
+
+.invalid-input-message li {
+	list-style: none;
+}
+
+input.ng-invalid,
+textarea.ng-invalid,
+select.ng-invalid,
+mat-select.ng-invalid {
+	color: #b71c1c;
+	border-color: #b71c1c;
+	box-shadow: 1px 1px #b71c1c;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+mat-select:focus {
+	color: #bbdefb;
+	border-color: #bbdefb;
+	box-shadow: 1px 1px #e3f2fd;
+}
+
+input.ng-valid,
+input.ng-valid:focus,
+textarea.ng-valid,
+textarea.ng-valid:focus,
+select.ng-valid,
+select.ng-valid:focus,
+mat-select.ng-valid,
+mat-select.ng-valid:focus {
+	border-color: #97d266;
+	box-shadow: 1px 1px rgba(151, 210, 102, 0.4);
+}
+
+.invalid-input-message {
+	margin-top: 0em;
+}
+
+/**
+ * Cards
+ */
+.tutor-card {
+	margin-top: 1em;
+}
+
+.tutor-card p {
+	line-height: 1;
+}
+
+.card-body h2 {
+	margin: 0;
+
+	color: grey;
+	font-weight: lighter;
+	font-size: 2em;
+}
+
+.tutor-card .card-body {
+	flex: 1 1 auto;
+	padding: 1em;
+	padding-top: 2em;
+	padding-left: 2em;
+
+	margin: 1em;
+	margin-left: 0;
+	margin-right: 0;
+
+	background-color: grey;
+
+	border: solid 1px grey;
+	border-radius: 0 0 5px 5px;
+
+	-webkit-box-shadow: 0px 3px 6px 0px black;
+	-moz-box-shadow: 0px 3px 6px 0px black;
+	box-shadow: 0px 3px 6px 0px black;
+}
+
+.tutor-card .thumbnail {
+	position: relative;
+	z-index: 10;
+	border: solid 1px grey;
+
+	-webkit-box-shadow: 0px 3px 6px 0px black;
+	-moz-box-shadow: 0px 3px 6px 0px black;
+	box-shadow: 0px 3px 6px 0px black;
+}
+
+.tutor-card .thumbnail,
+.tutor-card .thumbnail img {
+	max-width: 450px;
+	max-height: 450px;
+	border-radius: 8px;
+}
+
+/**
+ * Progress indicators
+ */
+mat-progress-bar {
+	max-height: 2px;
+	z-index: 2001;
+}
+
+.loading-overlay,
+.success-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.loading-overlay mat-spinner,
+.success-overlay i {
+	position: absolute;
+	top: calc(50% - 50px);
+	left: calc(50% - 50px);
+}
+/*
+ * Archive Styles
+*/
+.success-overlay i {
+	font-size: 100px;
+	color: #97d266;
+	text-shadow: rgba(151, 210, 102, 0.4);
+}
+
+tr.mat-row:hover {
+	background-color: #ffcdd2;
+}
+
+.container {
+	width: 80%;
+}
+
+mat-table {
+	padding: 1em 0 2em 0;
+	width: 100%;
+}
+
+i {
+	cursor: pointer;
+}
+
+.highlight {
+	background: #ffcdd2;
+}

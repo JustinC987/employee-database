@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h3>
+      Updating {{data.fname}} {{data.lname}}
+      <i (click)="dialogRef.close()" class="fas fa-times close-button"></i>
+    </h3>
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+      
+      <label>
+        First Name<br>
+        <input formControlName="fname" placeholder="Required Field">
+      </label><br>
+  
+      <label>Last Name<br>
+        <input formControlName="lname" placeholder="Required Field" >
+      </label><br>
+  
+      <label>Email<br>
+        <input formControlName="email" placeholder="Email" >
+      </label><br>
+  
+      <label>Phone Number<br>
+        <input formControlName="phoneNumber" placeholder="Required Field">
+      </label><br>
+    </div>
+    <div class="modal-footer">
+      <button (click)="dialogRef.close()" type="button">Cancel</button>
+      <button class="button-secondary" type="submit">Update</button>
+    </div>
+  </form>

@@ -1,0 +1,21 @@
+<div class="modal-header">
+    <h3>
+      Delete contact from {{data.fname}} {{data.lname}}?
+      <i (click)="dialogRef.close()" class="fas fa-times close-button"></i>
+    </h3>
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+      <p>
+        <mat-slide-toggle color="warn" formControlName="delete">
+          Are you sure you would like to delete this contact?
+        </mat-slide-toggle>
+      </p>
+    </div>
+  
+    <div class="modal-footer">
+      <button class="button-primary" type="button" (click)="dialogRef.close();">Cancel</button>
+      <button class="button-danger" type="submit">Delete</button>
+    </div>
+  </form>

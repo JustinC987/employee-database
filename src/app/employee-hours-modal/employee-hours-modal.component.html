@@ -1,0 +1,90 @@
+<div class="modal-header">
+    <h3>
+      Payroll Form
+      <i (click)="dialogRef.close()" class="fas fa-times close-button"></i>
+    </h3>
+</div>
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+
+      <p>Please enter your hours for each day you have worked this week. Start by entering the start and end date of the week. When you finish entering your hours, click the calculate button to get your total hours for the week. Click the submit button to submit your hours for payroll.</p>
+
+      <div class="flex-outer">
+
+    <div class="flex-inner left">
+
+        <label> Start Date <br>
+          <input type="date" formControlName="startDate">
+          <br>
+        </label>
+
+        <label> Employee Id <br>
+          <input formControlName="test">
+          <br>
+          <ul *ngIf="validateField('test')" class="invalid-input-message">
+              <li *ngIf="check('test', 'required')">
+                Employee Id is required
+             </li>
+          </ul>
+        </label>
+    
+        <label> Monday <br>
+          <input type="number" formControlName="monday">
+          <br>
+        </label>
+  
+        <label> Tuesday <br>
+          <input type="number" formControlName="tuesday">
+          <br>
+        </label>
+
+        <label> Wednesday <br>
+          <input type="number" formControlName="wednesday">
+          <br>
+        </label>
+    </div>
+  
+      <div class="flex-inner right">
+
+          <label> End Date <br>
+            <input type="date" formControlName="endDate">
+            <br>
+          </label>
+
+        <label> Total Hours <br>
+          <input type="number" formControlName="totalHours" readonly [(ngModel)]="employeeTotalHours">
+          <br>
+        </label>
+
+        <label> Thursday <br>
+          <input type="number" formControlName="thursday">
+          <br>
+        </label>
+  
+        <label> Friday <br>
+          <input type="number" formControlName="friday">
+          <br>
+        </label>
+  
+        <label> Saturday <br>
+          <input type="number" formControlName="saturday">
+          <br>
+        </label>
+  
+        <label> Sunday <br>
+          <input type="number" formControlName="sunday">
+          <br>
+        </label>
+
+      </div>
+
+    </div>
+  </div>
+    <div class="modal-footer">
+      <button class="button-danger" (click)="dialogRef.close()" type="button">Cancel</button>
+      <button class="button-primary" type="submit">Submit</button>
+      <button class="button-primary" type="button" (click)="setTotalHours()">Calculate</button>
+
+    </div>
+  </form>

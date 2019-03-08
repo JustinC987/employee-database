@@ -1,0 +1,90 @@
+<div class="container"> 
+  <h1>
+    Employee Database
+  </h1>
+  <div class="flex-outer archive-controls">
+    <div class="flex-inner">
+      <button class="button-primary" (click)="openContactSelection() ">Open Contact</button>
+      <button class="button-danger" (click)="deleteSelection()">Delete</button>
+    </div>
+  </div>
+      <br>
+    <div class="table-scroll-container">
+        <table mat-table [dataSource]="contacts">
+
+         <!-- Select Column -->
+          <ng-container matColumnDef="select">
+            <th mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="masterToggle()"
+                [checked]="selection.hasValue()"
+                [indeterminate]="selection.hasValue()">
+              </mat-checkbox>
+            </th>
+            <td mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()"
+                (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)">
+              </mat-checkbox>
+            </td>
+          </ng-container>
+
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let row">
+    					<i class="far fa-envelope-open" (click)="openContact(row)" *ngIf="row.readStatus === 'read'"></i>
+					  	<i class="far fa-envelope" (click)="openContact(row)" *ngIf="row.readStatus === 'unread'"></i>
+              <i class="far fa-trash-alt" (click)="deleteContact(row)"></i>
+            </td>
+          </ng-container>
+
+          <!-- First Name Column -->
+          <ng-container matColumnDef="fname">
+            <th mat-header-cell *matHeaderCellDef>First Name</th>
+            <td mat-cell *matCellDef="let row">{{row.fname}}</td>
+          </ng-container>
+      
+          <!-- Last Name Column -->
+          <ng-container matColumnDef="lname">
+            <th mat-header-cell *matHeaderCellDef>Last Name</th>
+            <td mat-cell *matCellDef="let row">{{row.lname}}</td>
+          </ng-container>
+      
+          <!-- Email Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+          </ng-container>
+
+            <!-- Phone Number Column -->
+            <ng-container matColumnDef="phoneNumber">
+              <th mat-header-cell *matHeaderCellDef>Phone #</th>
+              <td mat-cell *matCellDef="let row">{{row.phoneNumber}}</td>
+            </ng-container>
+
+            <!-- Message Column -->
+            <ng-container matColumnDef="message">
+                <th mat-header-cell *matHeaderCellDef>Message</th>
+                <td mat-cell *matCellDef="let row">{{row.message}}</td>
+            </ng-container>
+
+
+            <!-- Read Status Column -->
+            <ng-container matColumnDef="readStatus">
+                <th mat-header-cell *matHeaderCellDef>Read Status</th>
+                <td mat-cell *matCellDef="let row">{{row.readStatus}}</td>
+            </ng-container>
+            
+
+			<!-- Header Row -->
+			<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+			<tr
+				mat-row *matRowDef="let row; columns: displayedColumns;"
+				[ngClass]="{'highlighted-row': row.readStatus === 'unread'}"
+				>
+			</tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+</div>

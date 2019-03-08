@@ -1,0 +1,56 @@
+<div class="header-image"> 
+  <div class="container">
+    <h1>
+      HSS Technologies Employee Registration
+    </h1>
+    <h2>
+      Please fill out the form below to complete your registration
+    </h2>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form">
+        <div class="modal-body">
+      
+          <label> First Name <br>
+            <input formControlName="fname">
+            <br>
+            <ul *ngIf="validateField('fname')" class="invalid-input-message">
+                <li *ngIf="check('fname', 'required')">
+                  First Name is required
+               </li>
+            </ul>
+          </label>
+      
+          <label> Last Name <br>
+            <input formControlName="lname">
+            <br>
+            <ul *ngIf="validateField('lname')" class="invalid-input-message">
+                <li *ngIf="check('lname', 'required')">
+                  Last Name is required
+               </li>
+            </ul>
+          </label>
+          
+          <label>Email<br>
+            <input formControlName="email"><br>
+            <ul *ngIf="validateField('email')" class="invalid-input-message">
+                <li *ngIf="check('email', 'required')">
+                  Email is required
+               </li>
+            </ul>
+          </label>
+    
+          <label>Phone Number<br>
+            <input formControlName="phoneNumber"><br>
+            <ul *ngIf="validateField('phoneNumber')" class="invalid-input-message">
+                <li *ngIf="check('phoneNumber', 'required')">
+                  Phone Number is required
+               </li>
+            </ul>
+          </label>
+        </div>
+
+        <button type="submit" class="submit-form-button">Submit</button><br>
+        <button type="button" (click)="openContact()" class="contact-button">Contact</button>
+      </form>
+    <br>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+header {
+	color: #bdbdbd;
+	background-color: #c62828;
+}
+
+a:visited {
+	color: #bdbdbd;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.header-inner {
+	flex: 1 1 auto;
+}
+
+header a {
+	text-decoration: none;
+}
+
+.brand p {
+	font-size: 2.5rem;
+	margin: 1.1rem 0;
+}
+
+nav {
+	position: relative;
+	text-align: right;
+}
+
+nav > a,
+nav .nav-link {
+	color: #bdbdbd;
+	margin-left: 2em;
+	cursor: pointer;
+}
+
+.header-menu {
+	color: #000000;
+}

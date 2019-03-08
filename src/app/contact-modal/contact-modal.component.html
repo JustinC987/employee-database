@@ -1,0 +1,63 @@
+<div class="modal-header">
+    <h3>
+      Contact Form
+      <i (click)="dialogRef.close()" class="fas fa-times close-button"></i>
+    </h3>
+</div>
+  
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="modal-body">
+  
+      <label> First Name <br>
+        <input formControlName="fname">
+        <br>
+        <ul *ngIf="validateField('fname')" class="invalid-input-message">
+            <li *ngIf="check('fname', 'required')">
+              First Name is required
+           </li>
+        </ul>
+      </label>
+  
+      <label> Last Name <br>
+        <input	formControlName="lname">
+        <br>
+        <ul *ngIf="validateField('lname')" class="invalid-input-message">
+            <li *ngIf="check('lname', 'required')">
+              Last Name is required
+           </li>
+        </ul>
+      </label>
+      
+      <label>Email<br>
+        <input formControlName="email"><br>
+        <ul *ngIf="validateField('email')" class="invalid-input-message">
+            <li *ngIf="check('email', 'required')">
+              Email is required
+           </li>
+        </ul>
+      </label>
+
+      <label>Phone Number<br>
+        <input formControlName="phoneNumber"><br>
+        <ul *ngIf="validateField('phoneNumber')" class="invalid-input-message">
+            <li *ngIf="check('phoneNumber', 'required')">
+                Phone Number is required
+           </li>
+        </ul>
+      </label>
+
+      <label>Message<br>
+        <textarea formControlName="message"></textarea><br>
+        <ul *ngIf="validateField('message')" class="invalid-input-message">
+            <li *ngIf="check('message', 'required')">
+                A message is required
+           </li>
+        </ul>
+      </label>
+    </div>
+  
+    <div class="modal-footer">
+      <button class="button-danger" (click)="dialogRef.close()" type="button">Cancel</button>
+      <button class="button-primary" type="submit">Send</button>
+    </div>
+  </form>

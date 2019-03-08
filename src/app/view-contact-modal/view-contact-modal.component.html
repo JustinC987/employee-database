@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h3>
+      Viewing Contact from {{data.fname}} {{data.lname}}
+      <i (click)="dialogRef.close()" class="fas fa-times close-button"></i>
+    </h3>
+  </div>
+  
+  <form [formGroup]="form" (ngSubmit)="deleteContact()">
+    <div class="modal-body">
+      
+      <label>
+        First Name<br>
+        <input formControlName="fname" placeholder="Required Field" readonly>
+      </label><br>
+  
+      <label>Last Name<br>
+        <input formControlName="lname" placeholder="Required Field" readonly >
+      </label><br>
+  
+      <label>Email<br>
+        <input formControlName="email" placeholder="Email" readonly >
+      </label><br>
+  
+      <label>Phone Number<br>
+        <input formControlName="phoneNumber" placeholder="Required Field" readonly>
+      </label><br>
+
+      <label>Message<br>
+        <textarea formControlName="message" placeholder="Required Field" readonly></textarea>
+      </label><br>
+    </div>
+    <div class="modal-footer">
+      <button type="button" (click)="dialogRef.close()">Close</button>
+      <button type="button"><a href="mailto:{{data.email}}" *ngIf="data && data.email">Email <i class="far fa-envelope"></i></a> </button>
+    </div>
+  </form>

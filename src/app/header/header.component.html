@@ -1,0 +1,28 @@
+<header>
+	<div class="container">
+		<div class="header-inner">
+			<a class="brand" routerLink="home">
+				<p>HSS Employee Registration</p>
+			</a>
+		</div>
+		<nav class="header-inner">
+			<a routerLink="home">Home</a>
+			<a (click)="openEmployeeHours()">Enter Hours</a>
+	 		<a (click)="openContact()">Contact</a>
+			 <a *ngIf="!isLoggedIn" routerLink="blogarchive">Sign In</a>
+
+			<span *ngIf="isLoggedIn">
+				
+				<mat-menu class="header-menu" #profileMenu="matMenu"> 
+					<a mat-menu-item routerLink="/contacts">Contact Archive</a>
+					<a mat-menu-item routerLink="/users">Employee Archive</a>
+					<a mat-menu-item routerLink="/hours">Payroll Archive</a>
+					<a (click)="logOut()" mat-menu-item routerLink="home">Log Out</a>
+				</mat-menu>
+
+				<span class="nav-link user-thumbnail" [matMenuTriggerFor]="profileMenu">
+					<i class="fas fa-user"></i>	
+				</span>
+			</span>
+		</nav>
+	</div>

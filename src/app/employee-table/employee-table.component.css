@@ -1,0 +1,20 @@
+tr.mat-row:hover {
+	background-color: #ffcdd2;
+}
+
+.container {
+	width: 80%;
+}
+
+mat-table {
+	padding: 1em 0 2em 0;
+	width: 100%;
+}
+
+i {
+	cursor: pointer;
+}
+
+.highlight {
+	background: #ffcdd2;
+}
